@@ -1,4 +1,3 @@
-
 module GoogleCarousel
   module Item
     class ExtensionsExtractor
@@ -8,6 +7,7 @@ module GoogleCarousel
 
       def call
         return [] unless primary_title
+
         secondary_titles
       end
 
@@ -17,8 +17,8 @@ module GoogleCarousel
 
       def secondary_titles
         @secondary_titles =
-        all_titles
-          .select{ |element| element.attributes['class'].value != primary_title_styling }
+          all_titles
+          .select { |element| element.attributes['class'].value != primary_title_styling }
           .map(&:text)
       end
 

@@ -1,7 +1,7 @@
 require './lib/google_carousel/extractor'
 
 if ARGV.length < 1
-  puts "Too few arguments"
+  puts 'Too few arguments'
   exit
 end
 

@@ -1,10 +1,9 @@
-
 module GoogleCarousel
   class Extractor
     require 'nokogiri'
     require './lib/google_carousel/item/extractor'
 
-    def initialize(google_document_path:, encoding: "UTF-8")
+    def initialize(google_document_path:, encoding: 'UTF-8')
       @google_document = File.open(google_document_path) { |f| Nokogiri::HTML(f, nil, encoding) }
     end
 

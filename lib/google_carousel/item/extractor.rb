@@ -1,4 +1,3 @@
-
 module GoogleCarousel
   module Item
     class Extractor
@@ -19,23 +18,23 @@ module GoogleCarousel
       attr_reader :carousel_item
 
       def extracted_carousel_item
-        @normalised_carousel_item ||=
+        @extracted_carousel_item ||=
           {
             name: extracted_name,
             extensions: extracted_extensions,
             link: "#{GOOGLE_BASE_URL}#{extracted_search_link}",
-            image: extracted_image,
+            image: extracted_image
           }
       end
 
       def extracted_name
         @extracted_name =
-          carousel_item.attributes["aria-label"]&.text
+          carousel_item.attributes['aria-label']&.text
       end
 
       def extracted_search_link
-        extracted_search_link =
-          carousel_item.attributes["href"]&.value
+        @extracted_search_link =
+          carousel_item.attributes['href']&.value
       end
 
       def extracted_extensions
